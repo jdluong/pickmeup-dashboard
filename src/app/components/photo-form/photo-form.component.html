@@ -1,0 +1,31 @@
+<h3>{{ currPhoto.photoName }}</h3>
+<img src="{{ currPhoto.photoURL }}"
+     width="200"
+     length="200"
+     id="photo">
+
+<div class="table-responsive">
+    <table class="table table-sm table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Tag</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let photo of photos; index as ind"  (click)="onClick(photo)">
+                <td>{{ ind+1 }}</td>
+                <td>{{ photo.photoName }}</td>
+                <td>{{ photo.tagId }}</td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
+
+<form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+    <input formControlNname="file" type="file" (change)="onFileChange($event)">
+    <!-- <select  -->
+    <button type="submit">Add photo</button>
+    <!-- <button type="submit" [disabled]="photoForm.invalid">Add photo</button> -->
+</form>
