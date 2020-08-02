@@ -5,19 +5,18 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PhotoService {
+export class NotesService {
 
   constructor(private http: HttpClient) { }
 
-  private URL:string = "https://pickmeup-api-123.herokuapp.com/photos";
+  private URL:string = "https://pickmeup-api-123.herokuapp.com/notes";
 
-  public getPhotos():Observable<Object> {
+  public getNotes():Observable<Object> {
     return this.http.get(this.URL);
   }
 
-  public addPhoto(data: FormData) {
+  public addNote(data:any):Observable<Object> {
     return this.http.post(this.URL, data);
-
   }
-  
+
 }

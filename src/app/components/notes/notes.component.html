@@ -1,0 +1,50 @@
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="col">
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control col-sm-10" formControlName="message" row="3"></textarea>
+        </div>
+        <div class="col">
+            <label for="tag">Tag</label>
+            <select id="tag"class="form-control col-sm-2" formControlName="tag">
+                <option value="" default>none</option>
+                <option *ngFor="let tag of tags" value="{{ tag.id }}">
+                    {{ tag.name }}
+                </option>
+            </select> 
+        </div>
+        <div class="col">
+            <input id="photo" type="checkbox" class="form-check-input" formControlName="attachPhoto">
+            <label for="photo" class="form-check-label">Attach Photo</label>
+        </div>
+        <div class="col">
+            <button type="submit">Add note</button>
+        </div>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-sm table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Message</th>
+                <th scope="col">Tag</th>
+                <th scope="col">Attach photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let note of notes; index as ind">
+                <td>{{ ind + 1 }}</td>
+                <td>{{ note.message }}</td>
+                <td>{{ note.tagId | tagTranslate }}</td>
+                <td>
+                    <div *ngIf="note.attachPhoto == 1">
+                        <p>yeth</p>
+                        <!-- <i class="fas fa-check"></i> -->
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

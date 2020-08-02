@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PhotoFormComponent } from './components/photo-form/photo-form.component';
+import { PhotosComponent } from './components/photos/photos.component';
+import { NotesComponent } from './components/notes/notes.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
-  { path: 'dashboard', component: PhotoFormComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'notes', component: NotesComponent}
 ];
 
 @NgModule({

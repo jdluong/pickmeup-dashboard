@@ -1,6 +1,6 @@
 export class Photo {
     id:number;
-    photoName:string;
+    name:string;
     tagId:number;
     usedCount:number;
     photoURL:string;
