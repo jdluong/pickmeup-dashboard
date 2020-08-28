@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PhotosComponent } from './components/photos/photos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TagTranslatePipe } from './pipes/tag-translate.pipe';
 import { NotesComponent } from './components/notes/notes.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     PhotosComponent,
     TagTranslatePipe,
     NotesComponent,
-    DashboardComponent
+    DashboardComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

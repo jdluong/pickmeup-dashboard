@@ -65,6 +65,17 @@ export class PhotosComponent implements OnInit {
   debug($event) {
     console.log(this.photoForm.get("tag"));
   }
+
+  translateTag(id:number) {
+    if (id == null) {
+      return "n/a";
+    }
+    for (let tag of this.tags) {
+      if (id == tag.id) {
+        return tag.name;
+      } 
+    }
+  }
   
   onSubmit() {
     const formData = new FormData();

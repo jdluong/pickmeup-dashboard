@@ -1,11 +1,13 @@
-<h3>{{ currPhoto.name }}</h3>
-<img src="{{ currPhoto.photoURL }}"
-     width="200"
-     length="200"
-     id="photo">
+<div class="center">
+    <h5>{{ currPhoto.name }}</h5>
+    <img src="{{ currPhoto.photoURL }}"
+        width="200"
+        length="200"
+        id="photo">
+</div>
 
 <div class="table-responsive">
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover mt-3">
         <thead>
             <tr>
                 <th scope="col"></th>
@@ -17,20 +19,23 @@
             <tr *ngFor="let photo of photos; index as ind" (click)="onClick(photo)">
                 <td>{{ ind+1 }}</td>
                 <td>{{ photo.name }}</td>
-                <td>{{ photo.tagId | tagTranslate }}</td>
+                <!-- <td>{{ photo.tagId | tagTranslate }}</td> -->
+                <td>{{ translateTag(photo.tagId) }}</td>
             </tr>
         </tbody>
     </table>
 </div>
 
 <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
-    <input class="form-control-file" formControlNname="file" type="file" (change)="onFileChange($event)">
-    <select class="form-control col-sm-2" formControlName="tag">
-        <option value="" default>none</option>
-        <option *ngFor="let tag of tags" value="{{ tag.id }}">
-            {{ tag.name }}
-        </option>
-    </select>
-    <button type="submit">Add photo</button>
+    <div class="form-inline">
+        <input class="form-control-file-sm col-sm-6" formControlNname="file" type="file" (change)="onFileChange($event)">
+        <select class="form-control-sm col-sm-3" formControlName="tag">
+            <option value="" default>none</option>
+            <option *ngFor="let tag of tags" value="{{ tag.id }}">
+                {{ tag.name }}
+            </option>
+        </select>
+        <button class="btn-sm ml-1" type="submit">Add photo</button>
+    </div>
     <!-- <button type="submit" [disabled]="photoForm.invalid">Add photo</button> -->
 </form>

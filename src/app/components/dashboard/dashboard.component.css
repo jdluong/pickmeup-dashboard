@@ -1,0 +1,30 @@
+.bg {
+    background-color: rgb(108, 141, 150);
+}
+
+.body {
+    margin-left:25%;
+    margin-right:auto;
+
+}
+
+.bg-card{
+    background-color: rgb(240, 245, 247);
+}
+
+.photos {
+    position: relative;
+    margin-left:15%;
+}
+
+.tags {
+    position: absolute;
+    display: inline-block;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

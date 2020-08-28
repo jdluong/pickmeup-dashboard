@@ -7,24 +7,24 @@ import { TagService } from '../services/tag.service';
 })
 export class TagTranslatePipe implements PipeTransform {
 
-tags:Tag[];
-constructor(private tagService: TagService) { 
-  this.tagService.getTags().subscribe(
-    data => {
-      this.tags = data["tags"];
-    }
-  );
-}
+// tags:Tag[];
+// constructor(private tagService: TagService) { 
+//   this.tagService.getTags().subscribe(
+//     data => {
+//       this.tags = data["tags"];
+//     }
+//   );
+// }
 
 transform(value: any): any {
-  if (value == null) {
-    return "n/a";
-  }
-  for (let tag of this.tags) {
-    if (value == tag.id) {
-      return tag.name;
-    } 
-  }
+//   if (value == null) {
+//     return "n/a";
+//   }
+//   for (let tag of this.tags) {
+//     if (value == tag.id) {
+//       return tag.name;
+//     } 
+//   }
 }
 
 }

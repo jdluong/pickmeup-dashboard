@@ -4,6 +4,7 @@ import { Tag } from 'src/app/models/tag';
 import { TagService } from 'src/app/services/tag.service';
 import { Note } from 'src/app/models/note';
 import { NotesService } from 'src/app/services/notes.service';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-notes',
@@ -11,6 +12,8 @@ import { NotesService } from 'src/app/services/notes.service';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
+
+  faCheck = faCheck;
 
   notes:Note[];
   tags:Tag[];
@@ -42,6 +45,17 @@ export class NotesComponent implements OnInit {
         this.tags = data["tags"];
       }
     );
+  }
+
+  translateTag(id:number) {
+    if (id == null) {
+      return "n/a";
+    }
+    for (let tag of this.tags) {
+      if (id == tag.id) {
+        return tag.name;
+      } 
+    }
   }
 
   onSubmit() {
